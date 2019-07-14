@@ -3,13 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Proyecto_Estacionamiento"
+        xmlns:local="clr-namespace:ProyectoControlEstacionamiento_CristianOscar"
         mc:Ignorable="d"
         Title="MainWindow" Height="550" Width="400" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen" >
     <Grid>
         <Grid>
+            <Grid></Grid>
             <Grid.RowDefinitions>
-                <!--area de trabajo-->
+
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
@@ -21,7 +22,7 @@
 
             
             <Grid Grid.Row="1">
-                <!--Area de trabajo-->
+                
                 <Grid.ColumnDefinitions>
                     <!--Definicion de las columnas-->
                     <ColumnDefinition/>
@@ -31,7 +32,7 @@
 
                 <Grid Grid.Column="0">
                     <Grid.RowDefinitions>
-                        <!--Definicion de filas Grid0-->
+                        <!--Definicion de filas Grid-->
                         <RowDefinition Height="50"/>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="280"/>
@@ -43,13 +44,13 @@
                     </Grid>
 
                     <Grid Grid.Row="1" Background="AntiqueWhite">
-                        <!--panel de registro-->
-                        <Label FontFamily="Work Sans" Content="Número de Matricula" HorizontalAlignment="Left" Margin="28,33,0,0" VerticalAlignment="Top"/>
+                        <!--registro-->
+                        <Label FontFamily="Work Sans" Content="Número de Placa" HorizontalAlignment="Left" Margin="28,33,0,0" VerticalAlignment="Top"/>
                         <TextBox Name="txtPlaca" HorizontalAlignment="Left" Height="23" Margin="202,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162"/>
                         <Label FontFamily="Work Sans" Content="Tipo de Vehículo" HorizontalAlignment="Left" Margin="28,80,0,0" VerticalAlignment="Top"/>
                         <ComboBox Name="cmbTipoVehiculo" HorizontalAlignment="Left" Margin="202,80,0,0" VerticalAlignment="Top" Width="162">
                             <ComboBoxItem>Camioneta</ComboBoxItem>
-                            <ComboBoxItem>Camioneta</ComboBoxItem>
+                            <ComboBoxItem>Turismo</ComboBoxItem>
                             <ComboBoxItem>Pick-Up</ComboBoxItem>
                             <ComboBoxItem>Mocicleta</ComboBoxItem>
                             <ComboBoxItem>Bus</ComboBoxItem>
@@ -62,7 +63,7 @@
                     </Grid>
                     <Grid Grid.Row="4" Background="AntiqueWhite">
                         <DataGrid Name="dtgrid" Background="Gray" Margin="10,10,10,61" SelectionChanged="Dtgrid_SelectionChanged" />
-                        <!--Muestra los datos-->
+                        
                     </Grid>
                 </Grid>
             </Grid>
