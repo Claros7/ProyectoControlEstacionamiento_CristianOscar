@@ -19,7 +19,6 @@
                 <Label FontFamily="Work Sans" Foreground="White" FontStretch="ExtraExpanded" Margin="10,5,210,0" Content="Control de Estacionamiento OC"/>
             </Grid>
 
-            <Grid></Grid>
             
             <Grid Grid.Row="1">
                 <!--Area de trabajo-->
