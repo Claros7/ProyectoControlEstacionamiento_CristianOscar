@@ -1,14 +1,20 @@
-﻿<Window x:Class="ProyectoControlEstacionamiento_CristianOscar.MainWindow"
+﻿<Window x:Class="ProyectoControlEstacionamiento_CristianOscar.MainWindow"   
+     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     Background="{DynamicResource MaterialDesignPaper}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoControlEstacionamiento_CristianOscar"
         mc:Ignorable="d"
-        Title="MainWindow" Height="550" Width="400" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen" >
+        Title="MainWindow" Height="539.977" Width="807.175" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen" >
     <Grid>
         <Grid>
-            <Grid></Grid>
+
             <Grid.RowDefinitions>
 
                 <RowDefinition Height="30"/>
@@ -20,9 +26,9 @@
                 <Label FontFamily="Work Sans" Foreground="White" FontStretch="ExtraExpanded" Margin="10,5,210,0" Content="Control de Estacionamiento OC"/>
             </Grid>
 
-            
-            <Grid Grid.Row="1">
-                
+
+            <Grid Grid.Row="1" Background="Black" Margin="0,0,0,-86">
+
                 <Grid.ColumnDefinitions>
                     <!--Definicion de las columnas-->
                     <ColumnDefinition/>
@@ -30,7 +36,7 @@
                     <ColumnDefinition Width="0*"/>
                 </Grid.ColumnDefinitions>
 
-                <Grid Grid.Column="0">
+                <Grid Grid.Column="0" Margin="0,0,0,36">
                     <Grid.RowDefinitions>
                         <!--Definicion de filas Grid-->
                         <RowDefinition Height="50"/>
@@ -40,14 +46,14 @@
 
                     <Grid Grid.Row="0" Background="AntiqueWhite">
                         <!--Titulo-->
-                        <Label  FontSize="20" FontWeight="Bold" Content="Registro de entrada del Vehiculo" Margin="43,10,44,0" FontFamily="Work Sans"/>
+                        <Label  FontSize="20" FontWeight="Bold" Content="Registro de entrada del Vehículo" Margin="244,10,244,0" FontFamily="Work Sans"/>
                     </Grid>
 
-                    <Grid Grid.Row="1" Background="AntiqueWhite">
+                    <Grid Grid.Row="1" Background="AntiqueWhite" Margin="0,0,0,33">
                         <!--registro-->
-                        <Label FontFamily="Work Sans" Content="Número de Placa" HorizontalAlignment="Left" Margin="28,33,0,0" VerticalAlignment="Top"/>
+                        <Label FontFamily="Work Sans" Content="Número de Placa" HorizontalAlignment="Left" Margin="38,31,0,0" VerticalAlignment="Top"/>
                         <TextBox Name="txtPlaca" HorizontalAlignment="Left" Height="23" Margin="202,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162"/>
-                        <Label FontFamily="Work Sans" Content="Tipo de Vehículo" HorizontalAlignment="Left" Margin="28,80,0,0" VerticalAlignment="Top"/>
+                        <Label FontFamily="Work Sans" Content="Tipo de Vehículo" HorizontalAlignment="Left" Margin="41,80,0,0" VerticalAlignment="Top"/>
                         <ComboBox Name="cmbTipoVehiculo" HorizontalAlignment="Left" Margin="202,80,0,0" VerticalAlignment="Top" Width="162">
                             <ComboBoxItem>Camioneta</ComboBoxItem>
                             <ComboBoxItem>Turismo</ComboBoxItem>
@@ -57,13 +63,18 @@
                             <ComboBoxItem>Camion</ComboBoxItem>
                             <ComboBoxItem>Rastra</ComboBoxItem>
                         </ComboBox>
-                        <Button Name="btnSalir" Background="#002AA5" Foreground="White" Content="Aceptar" HorizontalAlignment="Left" Margin="73,130,0,0" VerticalAlignment="Top" Width="91" Height="33" Click="Aceptar"/>
-                        <Button x:Name="btnCancelar" Background="#002AA5" Foreground="White" Content="Cancelar" HorizontalAlignment="Left" Margin="232,130,0,0" VerticalAlignment="Top" Width="91" Height="33" Click="Cancelar" RenderTransformOrigin="0.299,-0.037"/>
+                        <Button Name="btnAceptar" Background="#002AA5" Foreground="White" Content="Aceptar" HorizontalAlignment="Left" Margin="73,130,0,0" VerticalAlignment="Top" Width="91" Height="33"/>
+                        <Button x:Name="btnCancelar" Background="#002AA5" Foreground="White" Content="Cancelar" HorizontalAlignment="Left" Margin="230,130,0,0" VerticalAlignment="Top" Width="91" Height="33" RenderTransformOrigin="0.299,-0.037"/>
+                        <DataGrid Name="dtgrid" Background="Gray" Margin="413,10,10,10" SelectionChanged="Dtgrid_SelectionChanged"/>
 
                     </Grid>
-                    <Grid Grid.Row="4" Background="AntiqueWhite">
-                        <DataGrid Name="dtgrid" Background="Gray" Margin="10,10,10,61" SelectionChanged="Dtgrid_SelectionChanged" />
-                        
+                    <Grid Grid.Row="1" Background="AntiqueWhite" Margin="0,202,0,33" Grid.RowSpan="2">
+                        <Label  FontSize="20" FontWeight="Bold" Content="Registro de salida del Vehículo" Margin="255,10,254,230" FontFamily="Work Sans"/>
+                        <Label FontFamily="Work Sans" Content="Buscar N° de placa" HorizontalAlignment="Left" Margin="41,69,0,0" VerticalAlignment="Top"/>
+                        <DataGrid Name="dtagrid" Background="Gray" Margin="413,69,10,41" SelectionChanged="Dtgrid_SelectionChanged"/>
+                        <Button Name="btnBuscarr" Background="#002AA5" Foreground="White" Content="Buscar" HorizontalAlignment="Left" Margin="73,130,0,0" VerticalAlignment="Top" Width="91" Height="33"/>
+                        <TextBox x:Name="txtPlaca_Copy" HorizontalAlignment="Left" Height="23" Margin="202,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162"/>
+
                     </Grid>
                 </Grid>
             </Grid>

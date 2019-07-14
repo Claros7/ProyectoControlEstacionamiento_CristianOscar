@@ -24,5 +24,10 @@ namespace ProyectoControlEstacionamiento_CristianOscar
         {
             InitializeComponent();
         }
+
+        private void Dtgrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
