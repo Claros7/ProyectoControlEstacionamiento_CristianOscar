@@ -126,3 +126,17 @@ UPDATE Parqueo.Detalle
 SET horaSalida=GETDATE() where placaVehiculo='HND123'
 
 SELECT * FROM Parqueo.Detalle
+
+
+
+INSERT INTO Parqueo.TipoVehiculo (nombreTipo)
+VALUES  ('Turismo'),
+		('Pick-Up'),
+		('Motocicleta'),
+		('Bus'),
+		('Camión'),
+		('Rastra'),
+		('Otros')
+GO
+
+SELECT * FROM Parqueo.TipoVehiculo
