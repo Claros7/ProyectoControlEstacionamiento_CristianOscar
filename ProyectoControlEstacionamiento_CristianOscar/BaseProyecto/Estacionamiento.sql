@@ -1,3 +1,4 @@
+
 /* Base de Datos ESTACIONAMIENTO*/
 
 
@@ -8,10 +9,15 @@ GO
 IF EXISTS(SELECT * FROM sys.databases WHERE [NAME]='Estacionamiento')
 	BEGIN
 		DROP DATABASE Estacionamiento
+		
+		END
+GO
 
 --Crear la base de datos
 
-CREATE DATABASE Estacionamiento
+IF NOT EXISTS (SELECT * FROM sys.databases WHERE [name]= 'Estacionamiento')
+	BEGIN
+		CREATE DATABASE Estacionamiento
 	END
 GO
   
