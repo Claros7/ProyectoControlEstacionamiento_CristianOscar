@@ -15,7 +15,7 @@ namespace ProyectoControlEstacionamiento_CristianOscar
         private DateTime horaEntrada;
         private DateTime horaSalida;
         private string placaVehiculo;
-        private string idTipoVehiculo;
+        private int idTipoVehiculo;
         private decimal costo;
         private int tiempoTotal;
 
@@ -23,7 +23,7 @@ namespace ProyectoControlEstacionamiento_CristianOscar
         public ClaseEstacionamiento()
         {
             placaVehiculo = "PorDefecto";
-            idTipoVehiculo = "PorDefecto";
+            idTipoVehiculo = 0;
         }
 
 
@@ -33,7 +33,7 @@ namespace ProyectoControlEstacionamiento_CristianOscar
             set { placaVehiculo = value; }
         }
 
-        public string IdTipoVehiculo
+        public int IdTipoVehiculo
         {
             get { return idTipoVehiculo; }
             set { idTipoVehiculo = value; }
@@ -62,6 +62,10 @@ namespace ProyectoControlEstacionamiento_CristianOscar
             get { return tiempoTotal; }
             set { tiempoTotal = value; }
         }
+
+
+
+
 
 
         //Validación si la placa existe 
@@ -158,47 +162,13 @@ namespace ProyectoControlEstacionamiento_CristianOscar
             }
 
         }
-
-        public void SalidaVehiculo()
-        {
-            try
-            {
-                cn.Open();
-                string query = "UPDATE Parqueo.Detalle SET horaSalida=GETDATE() WHERE placaVehiculo = @placaVehiculo";
-                SqlCommand comando = new SqlCommand(query, cn);
-                comando.Parameters.AddWithValue("@placaVehiculo", placaVehiculo);
-                comando.ExecuteNonQuery();
-                cn.Close();
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Ha ocurrido un error con la salida el vehiculo");
-            }
-            finally
-            {
-                try
-                {
-                    cn.Open();
-                    string query = "DELETE FROM Parqueo.Detalle where placaVehiculo = @placaVehiculo";
-                    SqlCommand comando = new SqlCommand(query, cn);
-                    comando.Parameters.AddWithValue("@placaVehiculo", placaVehiculo);
-                    comando.ExecuteNonQuery();
-                    cn.Close();
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Placa no válida");
-
-                }
-            }
-        }
+        
 
         // Listas a mostrar
         public List<ClaseEstacionamiento> MostrarEntrada()
         {
             cn.Open();
-            String query = @"SELECT placaVehiculo,tipoVehiculo,horaEntrada FROM Parqueo.Vehiculo  INNER JOIN Parqueo.Detalle he
-                                        ON placaVehiculo = he.placaVehiculo WHERE placaVehiculo = placaVehiculo";
+            String query = @"SELECT placaVehiculo, horaEntrada FROM Parqueo.Detalle";
             SqlCommand comando = new SqlCommand(query, cn);
             List<ClaseEstacionamiento> Lista = new List<ClaseEstacionamiento>();
             SqlDataReader reder = comando.ExecuteReader();
@@ -207,8 +177,7 @@ namespace ProyectoControlEstacionamiento_CristianOscar
             {
                 ClaseEstacionamiento dato = new ClaseEstacionamiento();
                 dato.placaVehiculo = reder.GetString(0);
-                dato.idTipoVehiculo = reder.GetString(1);
-                dato.horaEntrada = reder.GetDateTime(2);
+                dato.HoraEntrada = reder.GetDateTime(1);
 
                 Lista.Add(dato);
             }
@@ -216,60 +185,7 @@ namespace ProyectoControlEstacionamiento_CristianOscar
             cn.Close();
             return Lista;
         }
-
-        public List<ClaseEstacionamiento> BuscarEntrada()
-        {
-
-            cn.Open();
-            String query = @"SELECT placaVehiculo,tipoVehiculo,horaEntrada FROM Parqueo.Vehiculo  INNER JOIN Parqueo.Detalle he
-                                        ON placaVehiculo = he.placaVehiculo WHERE placaVehciulo = @placaVehiculo";
-            SqlCommand comando = new SqlCommand(query, cn);
-
-            comando.Parameters.AddWithValue("@placaVehiculo", placaVehiculo);
-            List<ClaseEstacionamiento> ListaB = new List<ClaseEstacionamiento>();
-            SqlDataReader reder = comando.ExecuteReader();
-
-            while (reder.Read())
-            {
-                ClaseEstacionamiento datob = new ClaseEstacionamiento();
-                datob.placaVehiculo = reder.GetString(0);
-                datob.idTipoVehiculo = reder.GetString(1);
-                datob.horaEntrada = reder.GetDateTime(2);
-
-                ListaB.Add(datob);
-            }
-            reder.Close();
-            cn.Close();
-            return ListaB;
-        }
-
-
-        // lista que muestra el reporte
-        public List<ClaseEstacionamiento> MostrarReporte()
-        {
-            cn.Open();
-            string query = "SELECT * FROM Parqueo.Detalle ";
-            SqlCommand comando = new SqlCommand(query, cn);
-            List<ClaseEstacionamiento> reporte = new List<ClaseEstacionamiento>();
-            SqlDataReader reder = comando.ExecuteReader();
-
-            while (reder.Read())
-            {
-                ClaseEstacionamiento datoR = new ClaseEstacionamiento();
-                datoR.placaVehiculo = reder.GetString(1);
-                datoR.idTipoVehiculo = reder.GetString(2);
-                datoR.horaEntrada = reder.GetDateTime(3);
-                datoR.horaSalida = reder.GetDateTime(4);
-                datoR.tiempoTotal = reder.GetInt32(5);
-                datoR.costo = reder.GetDecimal(6);
-
-
-                reporte.Add(datoR);
-            }
-            reder.Close();
-            cn.Close();
-            return reporte;
-        }
+        
     }
 }
 

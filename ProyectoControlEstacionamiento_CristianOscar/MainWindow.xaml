@@ -55,15 +55,8 @@
                         <Label FontFamily="Work Sans" Content="Número de Placa" HorizontalAlignment="Left" Margin="38,31,0,0" VerticalAlignment="Top"/>
                         <TextBox Name="txtPlaca" HorizontalAlignment="Left" Height="23" Margin="202,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162"/>
                         <Label FontFamily="Work Sans" Content="Tipo de Vehículo" HorizontalAlignment="Left" Margin="41,80,0,0" VerticalAlignment="Top"/>
-                        <ComboBox Name="cmbTipoVehiculo" HorizontalAlignment="Left" Margin="202,80,0,0" VerticalAlignment="Top" Width="162">
-                            <ComboBoxItem>Camioneta</ComboBoxItem>
-                            <ComboBoxItem>Turismo</ComboBoxItem>
-                            <ComboBoxItem>Pick-Up</ComboBoxItem>
-                            <ComboBoxItem>Mocicleta</ComboBoxItem>
-                            <ComboBoxItem>Bus</ComboBoxItem>
-                            <ComboBoxItem>Camion</ComboBoxItem>
-                            <ComboBoxItem>Rastra</ComboBoxItem>
-                            <ComboBoxItem>Otros</ComboBoxItem>
+                        <ComboBox Name="cmbTipoVehiculo" HorizontalAlignment="Left" Margin="202,80,0,0" VerticalAlignment="Top" Width="162"  >
+                            
                         </ComboBox>
                         <Button Name="btnAceptar" Background="#002AA5" Foreground="White" Content="Aceptar" HorizontalAlignment="Left" Margin="73,130,0,0" VerticalAlignment="Top" Width="91" Height="33" Click="Aceptar"/>
                         <Button x:Name="btnCancelar" Background="#002AA5" Foreground="White" Content="Cancelar" HorizontalAlignment="Left" Margin="230,130,0,0" VerticalAlignment="Top" Width="91" Height="33" RenderTransformOrigin="0.299,-0.037" Click="Cancelar"/>
@@ -127,8 +120,8 @@
                         </ListBox>
                         <Button Name="BtnBuscar" Background="#002AA5" Foreground="White" Content="Buscar" HorizontalAlignment="Left" Margin="300,72,0,0" VerticalAlignment="Top" Width="91" Height="33"/>
                         <TextBox x:Name="txtBuscarPlaca" HorizontalAlignment="Left" Height="23" Margin="112,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162"/>
-                        <Button Name="BtnPagar" Background="#002AA5" Foreground="White" Content="Pagar" HorizontalAlignment="Left" Margin="30,165,0,0" VerticalAlignment="Top" Width="91" Height="33" Click="BtnPagar_Click"/>
-                        <Button x:Name="btnCancelar2" Background="#002AA5" Foreground="White" Content="Cancelar" HorizontalAlignment="Left" Margin="160,165,0,0" VerticalAlignment="Top" Width="91" Height="33" RenderTransformOrigin="0.109,0.865" Click="Cancelar"/>
+                        <Button Name="BtnPagar" Background="#002AA5" Foreground="White" Content="Pagar" HorizontalAlignment="Left" Margin="30,165,0,0" VerticalAlignment="Top" Width="91" Height="33" />
+                        <Button x:Name="btnCancelar2" Background="#002AA5" Foreground="White" Content="Cancelar" HorizontalAlignment="Left" Margin="160,165,0,0" VerticalAlignment="Top" Width="91" Height="33" RenderTransformOrigin="0.109,0.865" />
                         <Button x:Name="btnReporte" Background="#002AA5" Foreground="White" Content="Reporte" HorizontalAlignment="Left" Margin="300,165,0,0" VerticalAlignment="Top" Width="91" Height="33" RenderTransformOrigin="0.434,1.207"/>
                     </Grid>
                 </Grid>

@@ -25,13 +25,34 @@ namespace ProyectoControlEstacionamiento_CristianOscar
     {
         ClaseEstacionamiento estacionamiento = new ClaseEstacionamiento();
         SqlConnection cn = new SqlConnection("Data Source=OSCKAR_BENITES\\SQLEXPRESS;Initial Catalog=Estacionamiento;Integrated Security=True");
-
+        private DataTable tabla;
         public MainWindow()
         {
             InitializeComponent();
-            
+
+            tabla = new DataTable();
+            try
+            {
+                cn.Open();
+                string query = "SELECT * FROM Parqueo.TipoVehiculo";
+                SqlDataAdapter adapter = new SqlDataAdapter(query, cn);
+                using (adapter)
+                {
+                    adapter.Fill(tabla);
+                    cmbTipoVehiculo.DisplayMemberPath = "nombreTipo";
+                    cmbTipoVehiculo.SelectedValuePath = "idTipoVehiculo";
+                    cmbTipoVehiculo.ItemsSource = tabla.DefaultView;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
             txtPlaca.Focus();
         }
+
+
 
         private void Salir(object sender, RoutedEventArgs e)
         {
@@ -44,7 +65,7 @@ namespace ProyectoControlEstacionamiento_CristianOscar
             {
 
                 parqueo.PlacaVehiculo = txtPlaca.Text;
-                parqueo.IdTipoVehiculo = cmbTipoVehiculo.Text;
+                parqueo.IdTipoVehiculo = Convert.ToInt32(cmbTipoVehiculo.SelectedValue);
                 parqueo.InsertarVehiculo();
                 txtPlaca.Clear();
                 cmbTipoVehiculo.SelectedIndex = -1;
@@ -66,61 +87,28 @@ namespace ProyectoControlEstacionamiento_CristianOscar
             cmbTipoVehiculo.SelectedIndex = -1;
             txtPlaca.Focus();
         }
-   
-
-
-//Mostar los datos en el listbox
-private void MostrarReporteVehiculo()
-{
-    ClaseEstacionamiento estacionamiento = new ClaseEstacionamiento();
-    lbReporteVehiculo.ItemsSource = estacionamiento.MostrarEntrada();
-}
 
 
 
-// Boton Pagar
-private void BtnPagar_Click(object sender, RoutedEventArgs e)
-{
-    if (lbReporteVehiculo2.SelectedItem == null)
-        MessageBox.Show("Debes seleccionar un Vehiculo");
-    else
-    {
-        ClaseEstacionamiento estacionamiento = new ClaseEstacionamiento();
-        estacionamiento.PlacaVehiculo = txtBuscarPlaca.Text;
-        estacionamiento.SalidaVehiculo();
-        MessageBox.Show("Gracias por su visita :)");
-    }
-    //CalcularPago();
-    this.lbReporteVehiculo.ItemsSource = estacionamiento.MostrarEntrada();
-    txtBuscarPlaca.Text = String.Empty;
-    lbReporteVehiculo.ItemsSource = "";
-    txtBuscarPlaca.Focus();
-}
 
 
-//boton cancelar
-private void BtnCancelarBuscar_Click(object sender, RoutedEventArgs e)
-{
-    txtBuscarPlaca.Text = String.Empty;
-    lbReporteVehiculo.ItemsSource = "";
-    txtBuscarPlaca.Focus();
-}
 
-private void Buscar(object sender, RoutedEventArgs e)
-{
-    if (txtBuscarPlaca.Text == string.Empty)
-    {
-        MessageBox.Show("Debe ingresar una placa.");
-        txtBuscarPlaca.Focus();
-    }
-    ClaseEstacionamiento estacionamiento = new ClaseEstacionamiento();
 
-    estacionamiento.PlacaVehiculo = txtBuscarPlaca.Text;
-    this.lbReporteVehiculo2.ItemsSource = estacionamiento.BuscarEntrada();
-    this.lbReporteVehiculo2.SelectedValuePath = estacionamiento.PlacaVehiculo;
-}
-        
+
+
+        //Mostar los datos en el listbox
+        private void MostrarReporteVehiculo()
+        {
+            ClaseEstacionamiento estacionamiento = new ClaseEstacionamiento();
+            lbReporteVehiculo.ItemsSource = estacionamiento.MostrarEntrada();
+        }
+
+
+
+      
     }
 }
 
 
+
+    
