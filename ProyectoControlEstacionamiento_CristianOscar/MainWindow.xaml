@@ -24,6 +24,7 @@
             <Grid Grid.Row="0" Background="#002AA5">
                 <!--Barra superior-->
                 <Label FontFamily="Work Sans" Foreground="White" FontStretch="ExtraExpanded" Margin="10,5,210,0" Content="Control de Estacionamiento OC"/>
+                <Button x:Name="BtnSalir" Content="X" HorizontalAlignment="Left" Margin="763,-1,0,0" Width="45" Background="Red" Height="Auto"/>
             </Grid>
 
 
@@ -65,16 +66,69 @@
                         </ComboBox>
                         <Button Name="btnAceptar" Background="#002AA5" Foreground="White" Content="Aceptar" HorizontalAlignment="Left" Margin="73,130,0,0" VerticalAlignment="Top" Width="91" Height="33"/>
                         <Button x:Name="btnCancelar" Background="#002AA5" Foreground="White" Content="Cancelar" HorizontalAlignment="Left" Margin="230,130,0,0" VerticalAlignment="Top" Width="91" Height="33" RenderTransformOrigin="0.299,-0.037"/>
-                        <DataGrid Name="dtgrid" Background="Gray" Margin="413,10,10,10" SelectionChanged="Dtgrid_SelectionChanged"/>
+
+                        <Grid Margin="413,0,10,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Placa" Grid.Column="0" HorizontalAlignment="Center"/>
+                            <Label Content="Tipo Vehiculo" Grid.Column="1" HorizontalAlignment="Center"/>
+                            <Label Content="Hora Entrada" Grid.Column="2" HorizontalAlignment="Center"/>
+                        </Grid>
+                        <ListBox Name="lbReporteVehiculo" HorizontalContentAlignment="Stretch" Margin="413,31,10,10" Background="#ABABAB">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Margin="2">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Grid.Column="0" Text="{Binding Placa}"></TextBlock>
+                                        <TextBlock Grid.Column="1" Text="{Binding TipoVehiculo}"></TextBlock>
+                                        <TextBlock Grid.Column="2" Text="{Binding HoraIngreso}"></TextBlock>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
 
                     </Grid>
                     <Grid Grid.Row="1" Background="AntiqueWhite" Margin="0,202,0,33" Grid.RowSpan="2">
-                        <Label  FontSize="20" FontWeight="Bold" Content="Registro de salida del Vehículo" Margin="255,10,254,230" FontFamily="Work Sans"/>
-                        <Label FontFamily="Work Sans" Content="Buscar N° de placa" HorizontalAlignment="Left" Margin="41,69,0,0" VerticalAlignment="Top"/>
-                        <DataGrid Name="dtagrid" Background="Gray" Margin="413,69,10,41" SelectionChanged="Dtgrid_SelectionChanged"/>
-                        <Button Name="btnBuscarr" Background="#002AA5" Foreground="White" Content="Buscar" HorizontalAlignment="Left" Margin="73,130,0,0" VerticalAlignment="Top" Width="91" Height="33"/>
-                        <TextBox x:Name="txtPlaca_Copy" HorizontalAlignment="Left" Height="23" Margin="202,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162"/>
-
+                        <Label FontSize="20" FontWeight="Bold" Content="Registro de salida del Vehículo" Margin="255,10,254,230" FontFamily="Work Sans"/>
+                        <Label FontFamily="Work Sans" Content="Buscar Placa" HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top"/>
+                        <Grid Margin="413,39,10,41">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Placa" Grid.Column="0" HorizontalAlignment="Center"/>
+                            <Label Content="Tipo Vehiculo" Grid.Column="1" HorizontalAlignment="Center"/>
+                            <Label Content="Hora Entrada" Grid.Column="2" HorizontalAlignment="Center"/>
+                        </Grid>
+                        <ListBox Name="lbReporteVehiculo2" HorizontalContentAlignment="Stretch" Margin="413,69,10,41" Background="#ABABAB">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Margin="2">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Grid.Column="0" Text="{Binding Placa}"></TextBlock>
+                                        <TextBlock Grid.Column="1" Text="{Binding TipoVehiculo}"></TextBlock>
+                                        <TextBlock Grid.Column="2" Text="{Binding HoraIngreso}"></TextBlock>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                        <Button Name="btnBuscar" Background="#002AA5" Foreground="White" Content="Buscar" HorizontalAlignment="Left" Margin="300,72,0,0" VerticalAlignment="Top" Width="91" Height="33"/>
+                        <TextBox x:Name="txtPlaca_Copy" HorizontalAlignment="Left" Height="23" Margin="112,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162"/>
+                        <Button Name="btnPagar" Background="#002AA5" Foreground="White" Content="Pagar" HorizontalAlignment="Left" Margin="30,165,0,0" VerticalAlignment="Top" Width="91" Height="33"/>
+                        <Button x:Name="btnCancelar2" Background="#002AA5" Foreground="White" Content="Cancelar" HorizontalAlignment="Left" Margin="160,165,0,0" VerticalAlignment="Top" Width="91" Height="33" RenderTransformOrigin="0.109,0.865"/>
+                        <Button x:Name="btnReporte" Background="#002AA5" Foreground="White" Content="Reporte" HorizontalAlignment="Left" Margin="300,165,0,0" VerticalAlignment="Top" Width="91" Height="33" RenderTransformOrigin="0.434,1.207"/>
                     </Grid>
                 </Grid>
             </Grid>
