@@ -24,7 +24,7 @@
             <Grid Grid.Row="0" Background="#002AA5">
                 <!--Barra superior-->
                 <Label FontFamily="Work Sans" Foreground="White" FontStretch="ExtraExpanded" Margin="10,5,210,0" Content="Control de Estacionamiento OC"/>
-                <Button x:Name="BtnSalir" Content="X" HorizontalAlignment="Left" Margin="763,-1,0,0" Width="45" Background="Red" Height="Auto"/>
+                <Button x:Name="BtnSalir" Content="X" HorizontalAlignment="Left" Margin="763,-1,0,0" Width="45" Background="Red" Height="Auto" Click="Salir"/>
             </Grid>
 
 
@@ -63,9 +63,10 @@
                             <ComboBoxItem>Bus</ComboBoxItem>
                             <ComboBoxItem>Camion</ComboBoxItem>
                             <ComboBoxItem>Rastra</ComboBoxItem>
+                            <ComboBoxItem>Otros</ComboBoxItem>
                         </ComboBox>
-                        <Button Name="btnAceptar" Background="#002AA5" Foreground="White" Content="Aceptar" HorizontalAlignment="Left" Margin="73,130,0,0" VerticalAlignment="Top" Width="91" Height="33"/>
-                        <Button x:Name="btnCancelar" Background="#002AA5" Foreground="White" Content="Cancelar" HorizontalAlignment="Left" Margin="230,130,0,0" VerticalAlignment="Top" Width="91" Height="33" RenderTransformOrigin="0.299,-0.037"/>
+                        <Button Name="btnAceptar" Background="#002AA5" Foreground="White" Content="Aceptar" HorizontalAlignment="Left" Margin="73,130,0,0" VerticalAlignment="Top" Width="91" Height="33" Click="Aceptar"/>
+                        <Button x:Name="btnCancelar" Background="#002AA5" Foreground="White" Content="Cancelar" HorizontalAlignment="Left" Margin="230,130,0,0" VerticalAlignment="Top" Width="91" Height="33" RenderTransformOrigin="0.299,-0.037" Click="Cancelar"/>
 
                         <Grid Margin="413,0,10,10">
                             <Grid.ColumnDefinitions>
@@ -124,10 +125,10 @@
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
-                        <Button Name="btnBuscar" Background="#002AA5" Foreground="White" Content="Buscar" HorizontalAlignment="Left" Margin="300,72,0,0" VerticalAlignment="Top" Width="91" Height="33"/>
-                        <TextBox x:Name="txtPlaca_Copy" HorizontalAlignment="Left" Height="23" Margin="112,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162"/>
-                        <Button Name="btnPagar" Background="#002AA5" Foreground="White" Content="Pagar" HorizontalAlignment="Left" Margin="30,165,0,0" VerticalAlignment="Top" Width="91" Height="33"/>
-                        <Button x:Name="btnCancelar2" Background="#002AA5" Foreground="White" Content="Cancelar" HorizontalAlignment="Left" Margin="160,165,0,0" VerticalAlignment="Top" Width="91" Height="33" RenderTransformOrigin="0.109,0.865"/>
+                        <Button Name="BtnBuscar" Background="#002AA5" Foreground="White" Content="Buscar" HorizontalAlignment="Left" Margin="300,72,0,0" VerticalAlignment="Top" Width="91" Height="33"/>
+                        <TextBox x:Name="txtBuscarPlaca" HorizontalAlignment="Left" Height="23" Margin="112,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162"/>
+                        <Button Name="BtnPagar" Background="#002AA5" Foreground="White" Content="Pagar" HorizontalAlignment="Left" Margin="30,165,0,0" VerticalAlignment="Top" Width="91" Height="33" Click="BtnPagar_Click"/>
+                        <Button x:Name="btnCancelar2" Background="#002AA5" Foreground="White" Content="Cancelar" HorizontalAlignment="Left" Margin="160,165,0,0" VerticalAlignment="Top" Width="91" Height="33" RenderTransformOrigin="0.109,0.865" Click="Cancelar"/>
                         <Button x:Name="btnReporte" Background="#002AA5" Foreground="White" Content="Reporte" HorizontalAlignment="Left" Margin="300,165,0,0" VerticalAlignment="Top" Width="91" Height="33" RenderTransformOrigin="0.434,1.207"/>
                     </Grid>
                 </Grid>
