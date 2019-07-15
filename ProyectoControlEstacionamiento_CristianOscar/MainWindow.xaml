@@ -63,7 +63,6 @@
                             <ComboBoxItem>Bus</ComboBoxItem>
                             <ComboBoxItem>Camion</ComboBoxItem>
                             <ComboBoxItem>Rastra</ComboBoxItem>
-                            <ComboBoxItem>Otros</ComboBoxItem>
                         </ComboBox>
                         <Button Name="btnAceptar" Background="#002AA5" Foreground="White" Content="Aceptar" HorizontalAlignment="Left" Margin="73,130,0,0" VerticalAlignment="Top" Width="91" Height="33"/>
                         <Button x:Name="btnCancelar" Background="#002AA5" Foreground="White" Content="Cancelar" HorizontalAlignment="Left" Margin="230,130,0,0" VerticalAlignment="Top" Width="91" Height="33" RenderTransformOrigin="0.299,-0.037"/>
