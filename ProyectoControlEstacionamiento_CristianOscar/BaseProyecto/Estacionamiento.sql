@@ -118,7 +118,7 @@ SET tiempoTotal=@tiempoTotal
 END
 GO
 
-
+/*
 INSERT INTO Parqueo.Detalle
 VALUES ('HND123', GETDATE(), GETDATE(),0,0)
 
@@ -126,7 +126,7 @@ UPDATE Parqueo.Detalle
 SET horaSalida=GETDATE() where placaVehiculo='HND123'
 
 SELECT * FROM Parqueo.Detalle
-
+*/
 
 
 INSERT INTO Parqueo.TipoVehiculo (nombreTipo)
@@ -139,4 +139,4 @@ VALUES  ('Turismo'),
 		('Otros')
 GO
 
-SELECT * FROM Parqueo.TipoVehiculo
+/*SELECT * FROM Parqueo.TipoVehiculo*/

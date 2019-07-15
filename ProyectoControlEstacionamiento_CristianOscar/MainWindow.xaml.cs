@@ -13,6 +13,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+//Bibliotecas para SQL
+using System.Data;
+using System.Data.SqlClient;
+
 namespace ProyectoControlEstacionamiento_CristianOscar
 {
     /// <summary>
@@ -20,6 +24,7 @@ namespace ProyectoControlEstacionamiento_CristianOscar
     /// </summary>
     public partial class MainWindow : Window
     {
+        SqlConnection cn = new SqlConnection("Data Source=OSCKAR_BENITES\\SQLEXPRESS;Initial Catalog=Estacionamiento;Integrated Security=True");
         public MainWindow()
         {
             InitializeComponent();
