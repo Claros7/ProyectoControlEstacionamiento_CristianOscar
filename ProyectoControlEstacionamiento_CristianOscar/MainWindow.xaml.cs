@@ -44,7 +44,7 @@ namespace ProyectoControlEstacionamiento_CristianOscar
             {
 
                 parqueo.PlacaVehiculo = txtPlaca.Text;
-                parqueo.TipoVehiculo = cmbTipoVehiculo.Text;
+                parqueo.IdTipoVehiculo = cmbTipoVehiculo.Text;
                 parqueo.InsertarVehiculo();
                 txtPlaca.Clear();
                 cmbTipoVehiculo.SelectedIndex = -1;

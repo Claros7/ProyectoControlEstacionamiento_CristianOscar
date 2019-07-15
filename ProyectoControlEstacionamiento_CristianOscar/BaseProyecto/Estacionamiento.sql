@@ -107,11 +107,11 @@ END
 if(@tiempoTotal) >= 4  BEGIN
 	set @costo=15*@tiempoTotal
 END
-if(@idTipoVehiculo) = 'Camión' or (@idtipoVehiculo) = 'Bus' or (@idtipoVehiculo) = 'Rastra' BEGIN
+if(@idTipoVehiculo) = 'Camión' or (@idTipoVehiculo) = 'Bus' or (@idTipoVehiculo) = 'Rastra' BEGIN
 	UPDATE Parqueo.Detalle
 	set @costo= @costo*2
 	END
-	if(@idtipoVehiculo) = 'Motocicleta' or (@idtipoVehiculo) = 'Otros' BEGIN
+	if(@idTipoVehiculo) = 'Motocicleta' or (@idTipoVehiculo) = 'Otros' BEGIN
 	set @costo=@costo*0.5
 	END
 

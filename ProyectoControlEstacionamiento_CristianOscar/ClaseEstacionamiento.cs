@@ -15,7 +15,7 @@ namespace ProyectoControlEstacionamiento_CristianOscar
         private DateTime horaEntrada;
         private DateTime horaSalida;
         private string placaVehiculo;
-        private string tipoVehiculo;
+        private string idTipoVehiculo;
         private decimal costo;
         private int tiempoTotal;
 
@@ -23,7 +23,7 @@ namespace ProyectoControlEstacionamiento_CristianOscar
         public ClaseEstacionamiento()
         {
             placaVehiculo = "PorDefecto";
-            tipoVehiculo = "PorDefecto";
+            idTipoVehiculo = "PorDefecto";
         }
 
 
@@ -33,10 +33,10 @@ namespace ProyectoControlEstacionamiento_CristianOscar
             set { placaVehiculo = value; }
         }
 
-        public string TipoVehiculo
+        public string IdTipoVehiculo
         {
-            get { return tipoVehiculo; }
-            set { tipoVehiculo = value; }
+            get { return idTipoVehiculo; }
+            set { idTipoVehiculo = value; }
         }
 
         public DateTime HoraEntrada
@@ -68,10 +68,10 @@ namespace ProyectoControlEstacionamiento_CristianOscar
         public Boolean Validar()
         {
             cn.Open();
-            string query = "SELECT COUNT(*) FROM Parqueo.Vehiculo WHERE placaVehiculo=@placaVehiculo";
+            string query = "SELECT COUNT(*) FROM Parqueo.Vehiculo WHERE placaVehiculo=@placaVehiculo AND idTipoVehiculo=@idTipoVehiculo";
             SqlCommand comando = new SqlCommand(query, cn);
             comando.Parameters.AddWithValue("@placaVehiculo", placaVehiculo);
-            comando.Parameters.AddWithValue("@tipoVehiculo", tipoVehiculo);
+            comando.Parameters.AddWithValue("@idTipoVehiculo", idTipoVehiculo);
             int cant = Convert.ToInt32(comando.ExecuteScalar());
             cn.Close();
             if (cant == 0)
@@ -89,10 +89,10 @@ namespace ProyectoControlEstacionamiento_CristianOscar
         public Boolean ValidarVehiculo()
         {
             cn.Open();
-            string query = "SELECT COUNT(*) FROM Parqueo.Vehiculo WHERE placaVehiculo=@placaVehiculo AND tipoVehiculo=@tipoVehiculo";
+            string query = "SELECT COUNT(*) FROM Parqueo.Vehiculo WHERE placaVehiculo=@placaVehiculo AND idTipoVehiculo=@idTipoVehiculo";
             SqlCommand comando = new SqlCommand(query, cn);
             comando.Parameters.AddWithValue("@placaVehiculo", placaVehiculo);
-            comando.Parameters.AddWithValue("@tipoVehiculo", tipoVehiculo);
+            comando.Parameters.AddWithValue("@idTipoVehiculo", idTipoVehiculo);
             int cant = Convert.ToInt32(comando.ExecuteScalar());
             cn.Close();
             if (cant == 0)
@@ -116,10 +116,10 @@ namespace ProyectoControlEstacionamiento_CristianOscar
                 try
                 {
                     cn.Open();
-                    string query = "INSERT INTO Parqueo.Vehiculo VALUES (@placaVehiculo,@tipovehiculo)";
+                    string query = "INSERT INTO Parqueo.Vehiculo VALUES (@placaVehiculo,@idTipovehiculo)";
                     SqlCommand comando = new SqlCommand(query, cn);
                     comando.Parameters.AddWithValue("@placaVehiculo", placaVehiculo);
-                    comando.Parameters.AddWithValue("@tipoVehiculo", tipoVehiculo);
+                    comando.Parameters.AddWithValue("@idTipoVehiculo", idTipoVehiculo);
                     comando.ExecuteNonQuery();
                     MessageBox.Show("El vehiculo se ha agregado correctamente");
 
@@ -207,7 +207,7 @@ namespace ProyectoControlEstacionamiento_CristianOscar
             {
                 ClaseEstacionamiento dato = new ClaseEstacionamiento();
                 dato.placaVehiculo = reder.GetString(0);
-                dato.tipoVehiculo = reder.GetString(1);
+                dato.idTipoVehiculo = reder.GetString(1);
                 dato.horaEntrada = reder.GetDateTime(2);
 
                 Lista.Add(dato);
@@ -233,7 +233,7 @@ namespace ProyectoControlEstacionamiento_CristianOscar
             {
                 ClaseEstacionamiento datob = new ClaseEstacionamiento();
                 datob.placaVehiculo = reder.GetString(0);
-                datob.tipoVehiculo = reder.GetString(1);
+                datob.idTipoVehiculo = reder.GetString(1);
                 datob.horaEntrada = reder.GetDateTime(2);
 
                 ListaB.Add(datob);
@@ -257,7 +257,7 @@ namespace ProyectoControlEstacionamiento_CristianOscar
             {
                 ClaseEstacionamiento datoR = new ClaseEstacionamiento();
                 datoR.placaVehiculo = reder.GetString(1);
-                datoR.tipoVehiculo = reder.GetString(2);
+                datoR.idTipoVehiculo = reder.GetString(2);
                 datoR.horaEntrada = reder.GetDateTime(3);
                 datoR.horaSalida = reder.GetDateTime(4);
                 datoR.tiempoTotal = reder.GetInt32(5);
